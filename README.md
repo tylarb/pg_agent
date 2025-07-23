@@ -4,7 +4,7 @@
 
 - Container running postgres
 - pg_bench
-- psql, or the ability to run this in the container to reset statistic
+- psql (which can be run in the container, if necessary)
 - golang
 
 ## Background and problem statement

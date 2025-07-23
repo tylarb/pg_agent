@@ -125,10 +125,8 @@ pg_tup_inserted_total{datid="5",datname="postgres"} 1.0101403e+07
 ## Foward looking things....
 
 
-1) in prometheus, set up a scrape interval that's the same as the local scrape interval to avoid weird interleaving. Or, even better, write a trigger on the HTTP handler to trigger a DB metrics scrape based on when it gets polled by prometheus itself to avoid the issue entirely
-
-2) use RATE to look at ops per window in prometheus
-
-3) metrics are exported with lables for database name and datid - which is great for filtering and reporting against different 
-
-4) there's many, many more metrics in `pg_stat_database`
+1) In prometheus, set up a scrape interval that's the same as the local scrape interval to avoid weird interleaving. Or, even better, write a trigger on the HTTP handler to trigger a DB metrics scrape based on when it gets polled by prometheus itself to avoid the issue entirely.
+2) Use RATE to look at ops per window in prometheus.
+3) Metrics are exported with lables for database name and datid - which could be use to filter and report on different objects, and is especially useful in the case of shared infrastucture (i.e. multiple users / use cases on a single postgres instance, but different DBs)
+4) There's many, many more metrics in `pg_stat_database`
+5) Extend this to table metrics, where possible

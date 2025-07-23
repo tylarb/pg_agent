@@ -13,7 +13,9 @@ postgres provides a counter of tuples updated and inserted per database. We want
 Counters increase forever (like the pg_stats table), while guages report a varaible number. In this case, we decide that the guage will report the number of updates or inserts since the last scrape interval
 
 
-This code is an agent that provides a prometheus metrics endpoint that provides a counter and a guage for inserted and updated records, which also tags the metrics with datid and datname for filtering in prometeus
+This code is an agent that provides a prometheus metrics endpoint that provides a counter and a guage for inserted and updated records, which also tags the metrics with datid and datname for filtering in prometheus
+
+[See documentation on counters vs guages](https://prometheus.io/docs/concepts/metric_types/)
 
 ```
 postgres=# select datid, datname, tup_inserted, tup_updated from pg_stat_database;
